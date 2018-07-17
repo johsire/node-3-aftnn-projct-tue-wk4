@@ -12,8 +12,12 @@ const app = express();
 // top level middleware -(global) 
 app.use(bodyParser.json());
 app.use(session({
-  secret: toptopsecret,
+  secret: process.env.SESSION_SECRET,
   reave:fals,
   saveUninitialized: false
 })
 );
+
+app.listen(SERVER_PORT, () => {
+  console.log(`Kevin Hart - Its about to go down on port: ${SERVER_PORT}`);
+});
