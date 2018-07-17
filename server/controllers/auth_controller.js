@@ -16,7 +16,15 @@ module.exports = {
     }
   },
   register: (req, res, next) => {
+    const {session} = req;
+    const {username, password} = req.body;
 
+    users.push({id, name, password});
+    id++;
+
+    session.user.username = username;
+
+    res.status(200).send(session.user);
   },
   signout: (req, res, next) => {
 
