@@ -1,14 +1,19 @@
 const bodyParser = require('body-parser');
+import Swag from '../src/components/Checkout/Swag/Swag';
 const express = require('express');
 const session = require('express-session');
 require('dotenv').config();
 
+// Controllers:
+const swag_controller = require('./controllers/swag_controller')
+
+// require our middleware in server.js file:
 const checkForSession = require('./middlewares/checkForSession');
 
 // create express app;
 const app = express();
 
-// top level middleware -(global) 
+// top level middleware:
 app.use(bodyParser.json());
 app.use(session({
   secret: process.env.SESSION_SECRET,
@@ -16,6 +21,10 @@ app.use(session({
   saveUninitialized: false
 })
 );
+
+// End-points/ Swag:
+app.get('/api/swag', swag_controller.read);
+
 
 // we use app.use to add checkForSession
 app.use(checkForSession);
