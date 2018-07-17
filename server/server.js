@@ -32,5 +32,5 @@ app.use(checkForSession);
 // const { SERVER_PORT } = process.env;
 const SERVER_PORT = process.env.SERVER_PORT || 3030;
 app.listen(SERVER_PORT, () => {
-  console.log(`Kevin Hart - Its about to go down on port: ${SERVER_PORT}`);
+  console.log(`Kevin Hart cracking em up on port: ${SERVER_PORT}`);
 });
