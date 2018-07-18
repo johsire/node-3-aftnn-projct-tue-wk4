@@ -1,5 +1,6 @@
 const bodyParser = require('body-parser');
 import { checkout } from '../src/ducks/reducer';
+import Search from '../src/components/Shop/Search/Search';
 
 const express = require('express');
 const session = require('express-session');
@@ -14,6 +15,7 @@ const checkForSession = require('./middlewares/checkForSession');
 const swag_controller = require('./controllers/swag_controller');
 const auth_controller = require('./controllers/auth_controller');
 const cart_controller = require('./controllers/cart_controller');
+const search_controller = require('./controllers/search_controller');
 
 
 // create express app;
@@ -46,7 +48,8 @@ app.post('/api/cart', cart_controller.add);
 app.post('/api/cart/checkout', cart_controller.checkout);
 app.delete('/api/cart', cart_controller.delete);
 
-
+// Search:
+app.get('/api/search', search_controller.search)
 
 
 // we use app.use to add checkForSession
