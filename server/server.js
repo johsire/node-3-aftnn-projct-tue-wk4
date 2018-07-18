@@ -40,7 +40,7 @@ app.use(checkForSession);
 
 // access our port in .env file;
 // const { SERVER_PORT } = process.env;
-const SERVER_PORT = process.env.SERVER_PORT || 3030;
+const SERVER_PORT = process.env.SERVER_PORT || 3000;
 app.listen(SERVER_PORT, () => {
   console.log(`Kevin Hart cracking em up on port: ${SERVER_PORT}`);
 });
