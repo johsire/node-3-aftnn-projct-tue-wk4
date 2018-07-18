@@ -34,6 +34,11 @@ module.exports = {
   },
 
   checkout: ( req, res, next ) => {
+    cons { user } = req.session;
+    user.cart = [];
+    user.total = 0;
 
+    res.status(200).send(req.session.user);
   }
-} 
+};
+ 
