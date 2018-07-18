@@ -34,7 +34,7 @@ module.exports = {
   },
 
   checkout: ( req, res, next ) => {
-    cons { user } = req.session;
+    const { user } = req.session;
     user.cart = [];
     user.total = 0;
 

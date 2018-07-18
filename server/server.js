@@ -1,7 +1,4 @@
 const bodyParser = require('body-parser');
-import { checkout } from '../src/ducks/reducer';
-import Search from '../src/components/Shop/Search/Search';
-
 const express = require('express');
 const session = require('express-session');
 require('dotenv').config();
@@ -48,12 +45,13 @@ app.post('/api/cart', cart_controller.add);
 app.post('/api/cart/checkout', cart_controller.checkout);
 app.delete('/api/cart', cart_controller.delete);
 
+
 // Search:
-app.get('/api/search', search_controller.search)
+app.get('/api/search', search_controller.search);
 
-
-// we use app.use to add checkForSession
+// we use app.use to add checkForSession/ Middleware:
 app.use(checkForSession);
+app.use( express.static(`${__dirname}/build`));
 
 // access our port in .env file;
 // const { SERVER_PORT } = process.env;

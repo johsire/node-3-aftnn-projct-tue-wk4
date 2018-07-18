@@ -2,7 +2,7 @@ const swag = require('../models/swag');
 
 module.exports = {
 
-  Search: (req, res, next) => {
+  search: (req, res, next) => {
     const { category } = req.query;
 
     if ( !category ) {
