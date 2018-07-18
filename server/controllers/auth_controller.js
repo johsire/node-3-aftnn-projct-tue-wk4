@@ -1,5 +1,5 @@
 const swag = require('../models/swag');
-let id = 1+1;
+let id = 1;
 
 module.exports = {
 
