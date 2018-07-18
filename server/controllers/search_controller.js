@@ -1,8 +1,15 @@
 const swag = require('../models/swag');
-import Search from '../../src/components/Shop/Search/Search';
 
 module.exports = {
+
   Search: (req, res, next) => {
-    
+    const { category } = req.query;
+
+    if ( !category ) {
+      res.status(200).send(swag);
+    } else {
+      const filteredSwag = swag.filter(swag => swag.category === category);
+      res.status(200).send(filteredSwag);
+    }
   }
-}
+};
